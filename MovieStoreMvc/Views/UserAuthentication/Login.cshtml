@@ -1,0 +1,69 @@
+﻿@model MovieStoreMvc.Models.DTO.LoginModel
+@{
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url();
+        background-repeat: repeat;
+        background-size: auto;
+    }
+
+    .my-container {
+        position: inherit;
+        text-align: right;
+    }
+
+    .form-container {
+        background-image: url('@Url.Content("~/Uploads/1.jpg")');
+        background-repeat: repeat;
+        background-size: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin-top: 30px;
+        box-shadow: 0px 0px 20px #ccc;
+    }
+</style>
+
+<div class="container" style="text-align:center">
+    <div class="row" >
+        <div class="col-6 offset-3">
+            <div class="form-container">
+               <img class="image-container" style="height:100px;width:400px;align-items:center" src=~/Uploads/Movies.jpg />
+                <form class="w-40" asp-action="Login" method="post">
+                   <h2 style="text-align:center"> Login </h2>
+                   <div class="input-container">
+                     <label asp-for="Username" class="w-40">Username</label>
+                     <input type="text" class="input" asp-for="Username">
+                   </div>
+                  <div class="message-box pd-x-28 error">
+                  <span asp-validation-for="Username"></span>
+                  </div>
+
+                  <div class="input-container">
+                    <label asp-for="Password" class="w-40">Password</label>
+                    <input type="password" class="input" asp-for="Password">
+                  </div>
+                  <div class="message-box pd-x-28 error">
+                   <span asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-group" , style="text-align:center">
+                        <button class="btn btn-default" type="submit" text-center>  Login  </button> &nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-sec" href="/UserAuthentication/Register">  Register  </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert mb-1">
+        @TempData["msg"]
+    </div>
+}
+
+@*<td style="text-align:center"><img class="image-container" style="height:100px;width:200px; text-align:right" src=~/Uploads/Movies.jpg /></td>*@
